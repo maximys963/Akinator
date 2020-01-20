@@ -6,7 +6,7 @@ import './App.css';
 
 const App = () => (
   <Router>
-    <div>
+    <>
       <Switch>
         <Route
           path="/"
@@ -14,7 +14,7 @@ const App = () => (
           exect
         />
       </Switch>
-    </div>
+    </>
   </Router>
 );
 

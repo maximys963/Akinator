@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
+import styles from './MainScreen.module.css';
 
-function MainScreen(props) {
-    return (
-        <div>Hello World</div>
-    );
+
+function MainScreen() {
+  return (
+    <div className={styles.mainScreenContainer}>
+            Hello World
+      <Button type="primary">Click</Button>
+    </div>
+  );
 }
 
 MainScreen.propTypes = {
