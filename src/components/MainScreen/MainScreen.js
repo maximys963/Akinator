@@ -19,7 +19,7 @@ function MainScreen() {
           type="primary"
           block
         >
-            Play
+            Play :)
         </Button>
       </div>
     </div>
