@@ -4,18 +4,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainScreen from './components/MainScreen/MainScreen';
 import './App.css';
 
-const App = () => (
-  <Router>
-    <>
-      <Switch>
-        <Route
-          path="/"
-          component={MainScreen}
-          exect
-        />
-      </Switch>
-    </>
-  </Router>
-);
-
+function App() {
+  return (
+    <Router>
+      <>
+        <Switch>
+          <Route
+            path="/"
+            component={MainScreen}
+            exect
+          />
+        </Switch>
+      </>
+    </Router>
+  );
+}
 export default App;
