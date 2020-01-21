@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Button, Input } from 'antd';
 import styles from './MainScreen.module.css';
 
 
-function MainScreen() {
+function MainScreen(props) {
+    const [ inputValues, setInputValues ] = useState('');
+
+    const { setUser } = props;
+
+
+
   return (
     <div className={styles.mainScreenContainer}>
       <div className={styles.title}>Welcome to Akinator </div>
