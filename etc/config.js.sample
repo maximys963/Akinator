@@ -1,0 +1,4 @@
+export const config = {
+   audDApiToken: 'YOUR API TOKEN'
+};
+

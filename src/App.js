@@ -1,24 +1,23 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainScreen from './components/MainScreen/MainScreen';
+import GameScreen from './components/GameScreen/GameScreen';
 import './App.css';
 
 function App() {
-  const [userName, setUserName] = useState('');
-
-  function onUserNameSet(name) {
-    setUserName(name);
-  }
-
   return (
     <Router>
       <>
         <Switch>
           <Route
             path="/"
-            render={() => (<MainScreen setUser={onUserNameSet} />)}
-            exect
+            render={() => (<MainScreen />)}
+            exact
+          />
+          <Route
+            path="/game"
+            render={() => (<GameScreen />)}
           />
         </Switch>
       </>
