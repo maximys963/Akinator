@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/Akinator_Int20h/static/css/main.807d65ff.chunk.css",
-    "main.js": "/Akinator_Int20h/static/js/main.1765a3c4.chunk.js",
+    "main.js": "/Akinator_Int20h/static/js/main.185932de.chunk.js",
     "runtime-main.js": "/Akinator_Int20h/static/js/runtime-main.6f3e347b.js",
     "static/css/2.e9609898.chunk.css": "/Akinator_Int20h/static/css/2.e9609898.chunk.css",
-    "static/js/2.9e89ed4b.chunk.js": "/Akinator_Int20h/static/js/2.9e89ed4b.chunk.js",
+    "static/js/2.3153456b.chunk.js": "/Akinator_Int20h/static/js/2.3153456b.chunk.js",
     "index.html": "/Akinator_Int20h/index.html",
-    "precache-manifest.c72aaee521571ac09138fe9d79375590.js": "/Akinator_Int20h/precache-manifest.c72aaee521571ac09138fe9d79375590.js",
+    "precache-manifest.59edb0a2ad8dd31c6a003c7b144ab388.js": "/Akinator_Int20h/precache-manifest.59edb0a2ad8dd31c6a003c7b144ab388.js",
     "service-worker.js": "/Akinator_Int20h/service-worker.js",
-    "static/js/2.9e89ed4b.chunk.js.LICENSE": "/Akinator_Int20h/static/js/2.9e89ed4b.chunk.js.LICENSE"
+    "static/js/2.3153456b.chunk.js.LICENSE": "/Akinator_Int20h/static/js/2.3153456b.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.6f3e347b.js",
     "static/css/2.e9609898.chunk.css",
-    "static/js/2.9e89ed4b.chunk.js",
+    "static/js/2.3153456b.chunk.js",
     "static/css/main.807d65ff.chunk.css",
-    "static/js/main.1765a3c4.chunk.js"
+    "static/js/main.185932de.chunk.js"
   ]
 }
