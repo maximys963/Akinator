@@ -17,7 +17,7 @@ function MainScreen() {
 
   function onSetUserName() {
     localStorage.setItem('gameUserName', inputValues);
-    history.push('/game');
+    history.push('/Akinator_Int20h/game');
   }
 
   return (
