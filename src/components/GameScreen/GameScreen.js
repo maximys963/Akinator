@@ -2,7 +2,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import { Input, Button } from 'antd';
-import { config} from "../../etc/config";
+import { config } from "../../etc/config.js";
 import styles from './GameScreen.module.css';
 
 const { audDApiToken } = config;
