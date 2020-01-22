@@ -1,0 +1,16 @@
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+    height: auto;
+}
+.title,
+.textArea {
+    margin-bottom: 10px;
+}
+
+.textArea {
+    width: 100%
+}
