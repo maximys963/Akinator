@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/Akinator_Int20h/static/css/main.807d65ff.chunk.css",
-    "main.js": "/Akinator_Int20h/static/js/main.377bd497.chunk.js",
+    "main.js": "/Akinator_Int20h/static/js/main.f4ea5827.chunk.js",
     "runtime-main.js": "/Akinator_Int20h/static/js/runtime-main.6f3e347b.js",
     "static/css/2.e9609898.chunk.css": "/Akinator_Int20h/static/css/2.e9609898.chunk.css",
     "static/js/2.fd448a56.chunk.js": "/Akinator_Int20h/static/js/2.fd448a56.chunk.js",
     "index.html": "/Akinator_Int20h/index.html",
-    "precache-manifest.3f062fcac9b30b6794eacfeb961bceb7.js": "/Akinator_Int20h/precache-manifest.3f062fcac9b30b6794eacfeb961bceb7.js",
+    "precache-manifest.bfd57a6bddd33f5edf0aa847628a78ef.js": "/Akinator_Int20h/precache-manifest.bfd57a6bddd33f5edf0aa847628a78ef.js",
     "service-worker.js": "/Akinator_Int20h/service-worker.js",
     "static/js/2.fd448a56.chunk.js.LICENSE": "/Akinator_Int20h/static/js/2.fd448a56.chunk.js.LICENSE"
   },
@@ -15,6 +15,6 @@
     "static/css/2.e9609898.chunk.css",
     "static/js/2.fd448a56.chunk.js",
     "static/css/main.807d65ff.chunk.css",
-    "static/js/main.377bd497.chunk.js"
+    "static/js/main.f4ea5827.chunk.js"
   ]
 }
