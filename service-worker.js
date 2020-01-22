@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Akinator_Int20h/precache-manifest.ad69f73098e66f922d14ef8e973a34a4.js"
+  "/Akinator_Int20h/precache-manifest.8952c2c607a94bcb9b7db6c2a1c759e8.js"
 );
 
 self.addEventListener('message', (event) => {
