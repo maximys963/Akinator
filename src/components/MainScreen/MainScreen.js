@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
+// eslint-disable-next-line import/no-extraneous-dependencies
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Button, Input } from 'antd';
 import styles from './MainScreen.module.css';
 
