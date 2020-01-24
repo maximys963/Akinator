@@ -1,8 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/src/etc/config.js
-/.idea
-
+etc/config.js
+.idea
 # dependencies
 /node_modules
 /.pnp

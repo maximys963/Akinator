@@ -4,7 +4,6 @@ import React, {
     useEffect,
     useCallback
 } from 'react';
-import PropTypes from 'prop-types';
 import GuessForm from "../GuessForm/GuessForm";
 import GuessResult from '../GuessResult/GuessResult';
 import { Spin } from 'antd';
@@ -121,9 +120,6 @@ function GameScreen(props) {
 
           const respTest = await response.text();
 
-          console.log('respTest');
-          console.log(respTest);
-
           const cutResponse = JSON.parse(respTest.slice(2, respTest.length -1)).result;
 
 
@@ -141,8 +137,6 @@ function GameScreen(props) {
           const title = dotProp.get(cutResponse, `0.title`);
 
           setGuessedData({artist, title });
-
-          console.log(`https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
 
          const deezerData = await fetch(` https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
 
