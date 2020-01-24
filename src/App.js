@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MainScreen from './components/MainScreen/MainScreen';
 import GameScreen from './components/GameScreen/GameScreen';
 import WinnerScreen from './components/WinnerScreen/WinnerScreen';
+import Rules from './components/Rules/Rules';
+import Menu from './components/Menu/Menu';
 import './App.css';
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
   return (
     <Router>
       <div>
+        <Menu />
         <Switch>
           <Route
             path="/Akinator_Int20h/"
@@ -41,6 +44,10 @@ function App() {
                 setScore={setScore}
               />
             )}
+          />
+          <Route
+            path="/Akinator_Int20h/rules"
+            component={Rules}
           />
         </Switch>
       </div>

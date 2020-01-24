@@ -7,9 +7,9 @@ import React, {
 import PropTypes from 'prop-types';
 import GuessForm from "../GuessForm/GuessForm";
 import GuessResult from '../GuessResult/GuessResult';
-import { Icon, notification, Spin, Alert } from 'antd';
+import { Spin } from 'antd';
 import dotProp from "dot-prop";
-import { RaccoonIcon } from '../../assets/icons/raccoon/RaccoonIcon';
+import { onNotify} from "../../utils/onNotify";
 
 
 import { config } from "../../etc/config.js";
@@ -18,15 +18,6 @@ import styles from './GameScreen.module.css';
 import {useHistory} from "react-router-dom";
 
 const { audDApiToken } = config;
-
-const onNotify = (placement, message, description ) => {
-    notification.info({
-        message,
-        icon: <Icon component={RaccoonIcon} />,
-        description,
-        placement,
-    });
-};
 
 function GameScreen(props) {
     const { setWinner, setScore, score } = props;
@@ -60,6 +51,11 @@ function GameScreen(props) {
 
   useEffect(() => {
       const name = localStorage.getItem('gameUserName');
+
+      if(!name) {
+          history.push('/Akinator_Int20h')
+      }
+
       setUserName(name)
   }, []);
 
@@ -136,15 +132,22 @@ function GameScreen(props) {
           const artist = dotProp.get(cutResponse, `0.artist`);
           const title = dotProp.get(cutResponse, `0.title`);
 
-          // const artist = 'Eminem';
-          // const title = 'Lose yourself';
-
           setGuessedData({artist, title });
 
           console.log(`https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
 
          const deezerData = await fetch(`https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
          const previewData = await deezerData.json();
+
+         if(previewData.data.length === 0){
+             onNotify(
+                 'bottomRight',
+                 `Ohh ... Sorry darning, I not found such song :(((`,
+                 'Come on, try again )))'
+             );
+             setLoading(false);
+             return
+         }
 
          const preview = await dotProp.get(previewData, 'data.0.preview', '');
           setPreviewLink(preview);

@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Input } from 'antd';
+import { onNotify } from '../../utils/onNotify';
 import styles from './MainScreen.module.css';
-
 
 function MainScreen() {
   const [inputValues, setInputValues] = useState('');
@@ -16,6 +16,13 @@ function MainScreen() {
   }
 
   function onSetUserName() {
+    if (inputValues === '') {
+      onNotify(
+        'bottomRight',
+        'Please write your name',
+        'And I will greet you on next step ) ',
+      );
+    }
     localStorage.setItem('gameUserName', inputValues);
     history.push('/Akinator_Int20h/game');
   }
