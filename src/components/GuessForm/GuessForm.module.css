@@ -11,6 +11,20 @@
     margin-bottom: 10px;
 }
 
+.title {
+    margin-top: 22px;
+}
+
 .textArea {
     width: 100%
+}
+
+.round {
+    font-size: 38px;
+    margin-bottom: 22px;
+}
+
+.players {
+    font-size: 18px;
+
 }

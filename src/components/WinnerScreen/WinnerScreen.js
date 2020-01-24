@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { Button } from 'antd'
+import { Button } from 'antd';
 import styles from './WinnerScreen.module.css';
 
 function WinnerScreen(props) {
   const history = useHistory();
   const { winner, setScore } = props;
+
 
   function onClickPlayAgain() {
     history.push('/Akinator_Int20h/');
@@ -17,21 +18,34 @@ function WinnerScreen(props) {
   }
 
   return (
-    <div>
+    <div className={styles.winnerContainer}>
       {
             winner
               ? (
                 <>
-                  <div>Congratulations !!!</div>
-                  <div>{`Winner is ${winner}`}</div>
+                  <div className={styles.congratulations}>Congratulations !!!</div>
+                  <div className={styles.winner}>{`Winner is ${winner}`}</div>
                   <Button
-                      onClick={onClickPlayAgain}
+                    type="primary"
+                    style={{ backgroundColor: '#2ecc71', borderColor: '#2ecc71' }}
+                    onClick={onClickPlayAgain}
                   >
                     Play Again
                   </Button>
                 </>
               )
-              : (<div> Hmm... who will be winner ?</div>)
+              : (
+                <>
+                  <div className={styles.winner}> Hmm... who will be winner ?</div>
+                  <Button
+                    type="primary"
+                    style={{ backgroundColor: '#2ecc71', borderColor: '#2ecc71' }}
+                    onClick={onClickPlayAgain}
+                  >
+                      Back
+                  </Button>
+                </>
+              )
         }
 
     </div>
@@ -40,7 +54,7 @@ function WinnerScreen(props) {
 
 WinnerScreen.propTypes = {
   winner: PropTypes.oneOf([null, PropTypes.string]),
-  setScore : PropTypes.func.isRequired
+  setScore: PropTypes.func.isRequired,
 };
 
 WinnerScreen.defaultProps = {

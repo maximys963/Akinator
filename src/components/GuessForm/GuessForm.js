@@ -17,9 +17,9 @@ function GuessForm(props) {
 
   return (
     <div className={styles.contentContainer}>
-      <div>{`Round ${round}`}</div>
-      <div>{`${userName} score: ${score.user}`}</div>
-      <div>{`Akinator score: ${score.akinator}`}</div>
+      <div className={styles.round}>{`Round ${round}`}</div>
+      <div className={styles.players}>{`${userName} score: ${score.user}`}</div>
+      <div className={styles.players}>{`Akinator score: ${score.akinator}`}</div>
 
       <div className={styles.title}>
         {`Hello ${userName}, let's play `}
