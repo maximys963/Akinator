@@ -112,10 +112,18 @@ function GameScreen(props) {
 
           const response = await fetch('https://api.audd.io/findLyrics/?jsonp=?', {
               method: 'POST',
+              origin : 'https://api.audd.io/',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+              },
               body: data
           });
 
           const respTest = await response.text();
+
+          console.log('respTest');
+          console.log(respTest);
+
           const cutResponse = JSON.parse(respTest.slice(2, respTest.length -1)).result;
 
 
@@ -136,7 +144,8 @@ function GameScreen(props) {
 
           console.log(`https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
 
-         const deezerData = await fetch(`https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
+         const deezerData = await fetch(` https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
+
          const previewData = await deezerData.json();
 
          if(previewData.data.length === 0){

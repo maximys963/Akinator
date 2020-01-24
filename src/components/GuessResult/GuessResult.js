@@ -19,10 +19,6 @@ function GuessResult(props) {
     setIsGuessFormOpen,
   } = props;
 
-  console.log('preview');
-  console.log(preview);
-
-
   function onClickGuessedRight() {
     onSetScore({ ...score, akinator: score.akinator + 1 });
     onSetRound(round + 1);
