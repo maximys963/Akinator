@@ -7,7 +7,7 @@ import React, {
 import PropTypes from 'prop-types';
 import GuessForm from "../GuessForm/GuessForm";
 import GuessResult from '../GuessResult/GuessResult';
-import { Icon, notification } from 'antd';
+import { Icon, notification, Spin, Alert } from 'antd';
 import dotProp from "dot-prop";
 import { RaccoonIcon } from '../../assets/icons/raccoon/RaccoonIcon';
 
@@ -19,12 +19,11 @@ import {useHistory} from "react-router-dom";
 
 const { audDApiToken } = config;
 
-const openNotification = placement => {
+const onNotify = (placement, message, description ) => {
     notification.info({
-        message: `Ohh ... Sorry darning, I not found such song :(((`,
+        message,
         icon: <Icon component={RaccoonIcon} />,
-        description:
-            'Come on, try again )))',
+        description,
         placement,
     });
 };
@@ -38,6 +37,7 @@ function GameScreen(props) {
   const [isGuessFormOpen, setIsGuessFormOpen ] = useState(true);
   const [previewLink, setPreviewLink ] = useState('');
   const [guessedData, setGuessedData] = useState({artist: '', title: ''});
+  const [ isLoading, setLoading ] = useState(false);
     const [round, setRound] = useState(0);
 
     function onSetRound() {
@@ -72,36 +72,74 @@ function GameScreen(props) {
       setLyrics(text)
   }, []);
 
+  function renderGuessForm () {
+      return (
+          <>
+              {
+                  isLoading
+                  ? (
+                      <Spin tip="Let me thing" />
+                     )
+                      : (
+                          <GuessForm
+                              userName={userName}
+                              score={score}
+                              round={round}
+                              onLyricsChange={onLyricsChange}
+                              onSubmitLyrics={onSubmitLyrics}
+                          />
+                      )
+              }
+
+              </>
+      )
+  }
+
   const onSubmitLyrics = useCallback(async () => {
       try{
-          // const data = JSON.stringify({
-          //     q: lyrics,
-          //     api_token: audDApiToken
-          // });
-          //
-          // const response = await fetch('https://api.audd.io/findLyrics/?jsonp=?', {
-          //     method: 'POST',
-          //     body: data
-          // });
-          //
-          // const respTest = await response.text();
-          // const cutResponse = JSON.parse(respTest.slice(2, respTest.length -1)).result;
+          setLoading(true);
+
+          if(lyrics === ''){
+              onNotify(
+                  'bottomRight',
+                  `Ohh ... Looks like you not write song text:)`,
+                  `I can't guess void ) Or can ? ^_^ `
+                  );
+              setLoading(false);
+              return;
+          }
+
+          const data = JSON.stringify({
+              q: lyrics,
+              api_token: audDApiToken
+          });
+
+          const response = await fetch('https://api.audd.io/findLyrics/?jsonp=?', {
+              method: 'POST',
+              body: data
+          });
+
+          const respTest = await response.text();
+          const cutResponse = JSON.parse(respTest.slice(2, respTest.length -1)).result;
 
 
-          // if(cutResponse.length === 0){
-          //     openNotification('bottomRight');
-          //     return;
-          // }
+          if(cutResponse.length === 0){
+              onNotify(
+                  'bottomRight',
+                  `Ohh ... Sorry darning, I not found such song :(((`,
+                  'Come on, try again )))'
+              );
+              setLoading(false);
+              return;
+          }
 
-          // const artist = dotProp.get(cutResponse, `0.artist`);
-          // const title = dotProp.get(cutResponse, `0.title`);
+          const artist = dotProp.get(cutResponse, `0.artist`);
+          const title = dotProp.get(cutResponse, `0.title`);
 
-          const artist = 'Eminem';
-          const title = 'Lose yourself';
+          // const artist = 'Eminem';
+          // const title = 'Lose yourself';
 
           setGuessedData({artist, title });
-
-         // const randomIndex = getRandomIndex(0, 10);
 
           console.log(`https://api.deezer.com/search?q=track:"${title.toLowerCase()}" q=artist:"${artist}"`);
 
@@ -111,8 +149,15 @@ function GameScreen(props) {
          const preview = await dotProp.get(previewData, 'data.0.preview', '');
           setPreviewLink(preview);
           setIsGuessFormOpen(false);
+          setLoading(false)
 
       } catch (err) {
+          setLoading(false);
+          onNotify(
+              'bottomRight',
+              `Ohh ... Sorry darning, I not found such song :(((`,
+              'Come on, try again )))'
+          );
           console.error(err)
       }
   }, [lyrics]);
@@ -122,13 +167,7 @@ function GameScreen(props) {
         {
             isGuessFormOpen
             ? (
-                    <GuessForm
-                        userName={userName}
-                        score={score}
-                        round={round}
-                        onLyricsChange={onLyricsChange}
-                        onSubmitLyrics={onSubmitLyrics}
-                    />
+                renderGuessForm()
                 )
                 : (
                     <GuessResult
