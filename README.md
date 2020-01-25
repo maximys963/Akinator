@@ -15,7 +15,7 @@ For starting project
 ```bash
 yarn start
 ```
-## Deployed version
+Deployed version
 https://maximys963.github.io/Akinator_Int20h/
 
 @epic_dev team
