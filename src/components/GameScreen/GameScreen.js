@@ -73,7 +73,7 @@ function GameScreen(props) {
               {
                   isLoading
                   ? (
-                      <Spin tip="Let me thing" />
+                      <Spin tip="Let me think ... " />
                      )
                       : (
                           <GuessForm

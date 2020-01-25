@@ -14,7 +14,7 @@ function Rules() {
       <ul className={styles.list}>
         <ol>1. You are writing text of your favourite song</ol>
         <ol>2. I'm trying to guess</ol>
-        <ol>3. I have guessed your song - my  game point, no - your :)</ol>
+        <ol>3. If I guess your song - game point will be mine, no - yours :)</ol>
         <ol>4. Who have got 5 points - winner (hope it's me)</ol>
         <ol>5. Happy (not hunger but) Games! And may the odds be ever in your favor</ol>
       </ul>
@@ -24,9 +24,5 @@ function Rules() {
     </div>
   );
 }
-
-Rules.propTypes = {
-
-};
 
 export default Rules;
